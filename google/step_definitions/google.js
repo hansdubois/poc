@@ -4,12 +4,13 @@ module.exports = function () {
     browser.url('https://www.google.nl');
   });
 
-  this.When(/^I search for kittens$/, (searchTerm) => {
+  this.When(/^I search for (.*)$/, (searchTerm) => {
+    browser.waitForExist('input[name="q"]');
     browser.setValue('input[name="q"]', searchTerm);
     browser.keys(['Enter']);
   });
 
-  this.Then(/^I want to see kittens$/, () => {
+  this.Then(/^I see Welkom bij Kitten Te Koop$/, function (link) {
     return true;
   });
 };

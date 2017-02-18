@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "./node_modules/.bin/selenium-standalone install",
+    "run-selenium": "./node_modules/.bin/wdio wdio.conf.js"
+    "run-browserstack": "./node_modules/.bin/wdio wdio.conf.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,7 +14,9 @@
     "browserstack-local": "^1.3.0",
     "chai": "^3.5.0",
     "cucumber": "1.3.1",
+    "selenium-standalone": "^6.0.1",
     "wdio-cucumber-framework": "^0.2.15",
+    "wdio-spec-reporter": "0.0.5",
     "webdriverio": "^4.6.2"
   }
 }

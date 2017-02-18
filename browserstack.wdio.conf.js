@@ -1,4 +1,5 @@
 const browserstack = require('browserstack-local');
+const pass_config = require('./etc/config.json');
 
 exports.config = {
 
@@ -10,9 +11,8 @@ exports.config = {
   // should work too though). These services define specific user and key (or access key)
   // values you need to put in here in order to connect to these services.
   //
-  user: "USERNAME",
-  key: "PASSWORD HERE",
-
+  user: pass_config.browserstack_user,
+  key: pass_config.browserstack_pass,
 
   //
   // ==================
@@ -156,7 +156,7 @@ exports.config = {
     console.log("Connecting local");
     return new Promise(function (resolve, reject) {
       exports.bs_local = new browserstack.Local();
-      exports.bs_local.start({'key': 'PASSWORD HERE', 'force' : true, 'forcelocal': true, 'debug': true}, function (error) {
+      exports.bs_local.start({'key': pass_config.browserstack_pass, 'force' : true, 'forcelocal': true, 'debug': true}, function (error) {
         if (error) return reject(error);
         console.log('Connected. Now testing...');
 
